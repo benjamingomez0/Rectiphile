@@ -6,12 +6,17 @@ const bodyParser = require('body-parser');
 
 app.use(express.static(path.join(__dirname,'build')))
 app.use(express.json())
-// app.use('/auth', userController)
 
 
-app.get('/hello', (req,res)=>{
-    res.json({ message: 'world'})
+
+app.get('/', (req,res)=>{
+    res.send('COMING IN HOT')
 })
+
+
+
+
+
 
 app.listen(PORT, ()=>{
     console.log(`...Listening on port ${PORT}`)
