@@ -23,12 +23,13 @@ class App extends Component {
   {
     auth.onAuthStateChanged(authUser => {
       authUser
-      ?this.setState({ currentUser: authUser }) 
+      ?this.doSetCurrentUser(authUser) 
       :this.setState({currentUser: null})
     })
   }
   
   doSetCurrentUser = currentUser =>{
+    
     this.setState({currentUser})
     console.log(this.state, '<==== current user')
   }

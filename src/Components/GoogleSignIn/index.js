@@ -7,15 +7,29 @@ class GoogleSignIn extends Component
         error: null 
     }
     handleSubmit=(e)=>{
-        doSignInWithGoogle().catch(error => {
+        doSignInWithGoogle()
+        .then(async (authUser)=>{
+            console.log(authUser)
+            const user = {
+                _id:authUser.user.uid,
+                email:authUser.user.email,
+                displayName: authUser.user.displayName
+            }
+            const createdUser = await fetch('/auth/users', {
+                method:"POST",
+                body:JSON.stringify(user),
+                headers: {
+                    'Content-Type': 'application/json'
+                  },
+            })
+            const createdUserJson = await createdUser.json()
+            console.log(createdUserJson)
+        })
+        .catch(error => {
               this.setState({ error });
             });
           e.preventDefault();
     }
-            
-
-    
-
     render()
     {
         const{error}=this.state

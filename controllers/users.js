@@ -7,13 +7,12 @@ router.get('/users', (req, res) => {
     return res.send('GET HTTP method on user resource');
 });
 router.post('/users', async (req, res) => {
-    try
-    {
-        const createdUser = await User.create(req.body)
+    console.log("hello")
+    console.log(req.body)
+    try {
+        const createdUser = User.create(req.body)
         res.json(createdUser)
-    }
-    catch(err)
-    {
+    } catch (err) {
         console.log(err)
     }
 });
