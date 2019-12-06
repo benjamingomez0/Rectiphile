@@ -3,9 +3,11 @@
     width: 97%;
     height: 75px;
     background-color: #696969;
-    border-radius: 2px;
+    border-radius: 6px;
     margin: 10px auto;
+    box-shadow:  5px 5px 5px #00000035;;
 }
 .nav-bar a{
     color:#F7F7FF;
+    text-decoration: none;
 }

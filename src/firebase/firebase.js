@@ -20,5 +20,6 @@ const config = {
 
     export {
         firebase,
-        doSignInWithGoogle
+        doSignInWithGoogle,
+        auth
     }
