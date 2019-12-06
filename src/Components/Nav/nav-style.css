@@ -1,7 +1,11 @@
 .nav-bar{
+    position: relative;
     width: 97%;
     height: 75px;
     background-color: #696969;
     border-radius: 2px;
     margin: 10px auto;
+}
+.nav-bar a{
+    color:#F7F7FF;
 }
