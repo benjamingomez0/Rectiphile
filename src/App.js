@@ -1,14 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'; 
+import {Route,Switch} from 'react-router-dom'
+
+import Nav from './Components/Nav'
+
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Todo:</h1>
-      <ul>
-        <li>Learn to use Multer</li>
-      </ul>
+    <div>
+      <div className="App">
+      <Router>
+        <Nav/>
+        </Router>
+        <h1>Todo:</h1>
+        <ul>
+          <li>Learn to use Multer</li>
+        </ul>
+      </div>
     </div>
   );
 }

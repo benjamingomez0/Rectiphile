@@ -4,6 +4,8 @@ const app        = express()
 const PORT       = process.env.PORT || 8000
 const bodyParser = require('body-parser');
 
+const userController = require('./controllers/users')
+
 app.use(express.static(path.join(__dirname,'build')))
 app.use(express.json())
 
