@@ -21,7 +21,12 @@ const Master = require('../models/Masters')
 
 router.post('/master',upload.single('masterFile'), async (req,res,next)=>{
     console.log(req.file)
-    const createdMaster =  await Master.create(req.body)
+    const createdMaster =  await new Master({
+        _id: new mongoose.Types.ObjectId(),
+        name:req.body.name,
+        user_id:req.body.user_id,
+        masterFile:req.file.path,
+    })
     res.json(createdMaster)
     console.log(createdMaster)
 })
