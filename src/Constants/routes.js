@@ -1,4 +1,5 @@
-export const HOME = '/home'
-export const SIGN_UP ='/signup'
-export const LOGIN = '/login'
+export const HOME     = '/'
+export const SIGN_UP  ='/signup'
+export const REGISTER = '/register'
+export const UPLOAD   = '/uploads'
 // export const MASTERS = '/movies'

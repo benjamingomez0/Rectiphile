@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import {doSignInWithGoogle} from '../../firebase/firebase'
+import './Google-Sign-In-style.css'
+import * as ROUTES from '../../Constants/routes'
 
 class GoogleSignIn extends Component
 {
@@ -15,7 +18,7 @@ class GoogleSignIn extends Component
                 email:authUser.user.email,
                 displayName: authUser.user.displayName
             }
-            const createdUser = await fetch('/auth/users', {
+            const createdUser = await fetch('/auth/users/new', {
                 method:"POST",
                 body:JSON.stringify(user),
                 headers: {
@@ -34,10 +37,14 @@ class GoogleSignIn extends Component
     {
         const{error}=this.state
         return(
-            <form onSubmit = {this.handleSubmit}>
-               <button type = "submit"> Use Google to SignIn </button>
-                {error && <span className="error-message">We're Sorry, {error.message}</span>}
-            </form>
+            <div className = "create-user">
+                Register with Google
+                <form onSubmit = {this.handleSubmit}>
+                <button type = "submit"> Use Google to Register </button>
+                    {error && <span className="error-message">We're Sorry, {error.message}</span>}
+                </form>
+                <Link to = {ROUTES.HOME}> home</Link>
+            </div>
         )
     }
 

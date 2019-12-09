@@ -1,0 +1,45 @@
+.upload-message{
+    width: 20%;
+    margin: 7% auto;
+    background-color: #696969;
+    border-radius: 6px;
+    height: auto;
+    text-align: center;
+    color: #F7F7FF;
+    padding: 10px;
+    border-style: dashed;
+    display:block;
+    overflow: auto;
+}
+.upload-message:hover {
+    box-shadow:  5px 5px 5px #00000035;
+}
+
+.sub-text{
+    opacity: .4;
+}
+.upload-container{
+    width:80%;
+    height:60vh;
+    background-color: #474A48;
+    border-radius: 6px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow:  5px 5px 5px #00000035;
+    overflow: scroll;
+}
+.form-holder{
+    margin: 20px auto;
+    width:80%;
+    height:auto;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow:  5px 5px 5px #00000035;
+    background-color: #474A48;
+    color: #F7F7FF;
+}
+/* .form{
+    text-align: center;
+    margin: 10px auto;
+    justify-content: left;
+} */

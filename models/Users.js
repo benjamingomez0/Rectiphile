@@ -6,7 +6,6 @@ const userSchema = new Schema({
     _id:String,
     email:String,
     displayName: String,
-    organization:String,
 
 },{
     _id:false
