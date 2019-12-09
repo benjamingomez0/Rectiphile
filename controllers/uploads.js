@@ -1,9 +1,21 @@
 const express    = require('express');
-const mongoose = require('mongoose')
+const mongoose   = require('mongoose')
 const router     = express.Router()
-const multer     = require('multer');
 const bodyParser = require('body-parser');
-const upload     = multer({dest:'uploads/'})
+
+//multer utilities
+const multer     = require('multer');
+
+const storage    = multer.diskStorage({
+    destination: (req,file,cb)=>{
+            cb(null,'./uploads');
+    },
+    filename: (req,file,cb)=>{
+            cb(null, file.originalname);
+    }
+})
+const upload     = multer({storage:storage})
+//Model
 const Master = require('../models/Masters')
 // app.use(express.static('../client'));
 
