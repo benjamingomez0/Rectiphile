@@ -1,0 +1,34 @@
+.master-container{
+    margin: 0 auto;
+    text-align: center;
+    height:60vh;
+    width:60%;
+    color:#F7F7FF;
+    background-color: #306B34;
+    overflow: scroll;
+    border-radius: 6px;
+    box-shadow:  5px 5px 5px #00000035;
+}
+
+a{
+    color:#F7F7FF;
+    text-decoration: none;
+    
+}
+a:hover{
+    color:#FFAE00;
+}
+.card-container{
+    display: flex;
+    width: 40%;
+    display: inline-block;
+    border-radius: 6px;
+    box-shadow:  5px 5px 5px #00000035;
+    margin-left: 20px;
+    margin:auto 20px;
+}
+
+
+/* .card{
+    display:inline-block
+} */

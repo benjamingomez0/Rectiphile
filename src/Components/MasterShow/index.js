@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+import './Master-Show-Style.css'
 
 class MasterShow extends Component{
     state = {
@@ -18,7 +20,7 @@ class MasterShow extends Component{
             return(
                 <div className ="master-container">
                     <h1>{this.state.master.name}</h1>
-                    <a href = "{this.state.master.masterFile}">Download Master</a>
+                    <Link to = {this.state.master.masterFile}>Download Master</Link>
                     <h3>Date Created:</h3>
                     {this.state.master.dateCreated}
                     <h3>Versions Available</h3>
