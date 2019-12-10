@@ -14,6 +14,14 @@ const config = {
   const firebase = app.initializeApp(config)
   const auth = firebase.auth()
   const googleProvider = new app.auth.GoogleAuthProvider()
+  const storage = firebase.storage()
+  const storageRef = storage.ref()
+
+  const doAddFile = file => {
+    return storageRef
+      .child(file.name)
+      .put(file)
+  }
 
   const doSignInWithGoogle = () =>
     auth.signInWithPopup(googleProvider)
@@ -21,5 +29,6 @@ const config = {
     export {
         firebase,
         doSignInWithGoogle,
-        auth
+        auth,
+        doAddFile
     }

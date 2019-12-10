@@ -31,7 +31,7 @@ class App extends Component {
   
   doSetCurrentUser = currentUser =>{
     this.setState({currentUser})
-    console.log(this.state, '<==== current user')
+    // console.log(this.state, '<==== current user')
   }
   
 
@@ -41,10 +41,9 @@ class App extends Component {
         <div className="App">
         <Router>
           <Nav/>
-          <MastersUpload/>
           <Switch>
           <Route exact path = {ROUTES.REGISTER} component = {GoogleSignIn}/>
-          {/* <Route path = {ROUTES.UPLOAD} render ={()=> <MastersUpload currentUser = {this.state.currentUser}/>} /> */}
+          <Route path = {ROUTES.UPLOAD} render ={()=> <MastersUpload currentUser = {this.state.currentUser}/>} />
         </Switch>
         </Router>
         </div>
