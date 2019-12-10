@@ -55,7 +55,8 @@ class MastersUpload extends Component{
         if(createTheMaster.status==200)
         {
             console.log(await createTheMaster.json(),"<<<< master upload success message")
-            // this.props.history.push(`/docs/masters/${createTheMaster._id}`)
+            console.log(this.props)
+            this.props.history.push(`/auth/users/${this.props.currentUser.uid}`)
         }
         
         })

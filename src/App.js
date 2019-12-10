@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'; 
-import {Route,Switch} from 'react-router-dom'
+import {Route,Switch, withRouter} from 'react-router-dom'
 
 //components
 import Nav from './Components/Nav'
 import GoogleSignIn from './Components/GoogleSignIn'
 import MastersUpload from './Components/MastersUpload'
 import UserShow from './Components/UserShow'
-
+import MasterShow from './Components/MasterShow'
 //firebase imports 
 import {firebase,doAddFile,auth,doSignOut} from './firebase/firebase'
 
@@ -45,8 +45,9 @@ class App extends Component {
           <Nav currentUser = {this.state.currentUser}/>
         <Switch>
           <Route exact path = {ROUTES.REGISTER} component = {GoogleSignIn}/>
-          <Route path = {ROUTES.UPLOAD} render ={()=> <MastersUpload currentUser = {this.state.currentUser}/>} />
-          <Route exact path= {`${ROUTES.USER}/users/:id`} render ={()=> <UserShow currentUser = {this.state.currentUser}/>}/>
+          <Route path = {ROUTES.UPLOAD} render ={(props)=> <MastersUpload currentUser = {this.state.currentUser} {...props} />} />
+          <Route exact path= {`${ROUTES.USER}/users/:id`} render ={(props)=> <UserShow currentUser = {this.state.currentUser} {...props}/>}/>
+          <Route exact path= {`${ROUTES.DOCS}/masters/:id`} render ={(props)=> <MasterShow currentUser = {this.state.currentUser} {...props}/>}/>
         </Switch>
         </Router>
         </div>

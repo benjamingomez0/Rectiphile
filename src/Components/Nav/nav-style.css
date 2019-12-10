@@ -6,17 +6,43 @@
     border-radius: 6px;
     margin: 10px auto;
     box-shadow:  5px 5px 5px #00000035;
+    display:flex
 }
 .nav-bar a{
     color:#F7F7FF;
     text-decoration: none;
+    padding: 5px;
+    text-align: left;
+   
 }
-.nav-bar:hover{
+.nav-bar:hover a{
     text-decoration: underline;
 }
 .nav-bar-left{
     display:inline;
+    text-align: left;
+    margin: 1% auto;
+    box-shadow:  5px 5px 5px #00000035;
+    height: 70%;
+    padding-top: 5px;
 }
-.nav-bar-right{
+.nav-bar-right {
     text-align: right;
+    display: inline;
+    margin: 1% auto;
+    box-shadow:  5px 5px 5px #00000035;
+    height: 70%;
+    padding-top: 5px;
+}
+.home-login{
+  
+    display:inline;
+    text-align: right;
+    
+}
+
+.middle{
+    width:80%;
+    
+    height:30%
 }

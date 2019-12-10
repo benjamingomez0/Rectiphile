@@ -19,7 +19,6 @@ router.post('/users/new', async (req, res) => {
 });
 
 router.get('/users/:id', async(req,res)=>{
-    console.log(req.params.id)
     try
     {
         const foundMasterDocs = await Master.find({userLeader:req.params.id}, (err,foundMasters)=>{
@@ -29,7 +28,6 @@ router.get('/users/:id', async(req,res)=>{
             }
             else
             {
-                console.log(foundMasters)
                 res.json(foundMasters)
             }
         })

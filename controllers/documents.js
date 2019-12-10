@@ -9,7 +9,7 @@ const Master = require('../models/Masters')
 const Version = require('../models/Versions')
 
 //master show route
-router.get('masters/:id', async (req,res) =>{
+router.get('/masters/:id', async (req,res) =>{
     try
     {
        const foundMasters=  await Master.findById(req.params.id, (err,master)=>{

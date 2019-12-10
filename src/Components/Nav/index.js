@@ -10,13 +10,20 @@ const Nav = (props) =>{
             <div className="nav-bar-left">
             {
                 props.currentUser
-                ? <NavLink to = {`${ROUTES.UPLOAD}/masters`}>Upload New Master</NavLink>
+                ? <NavLink to = {`${ROUTES.UPLOAD}/masters`}>Upload<br/>Master</NavLink>
                 :<NavLink to = {ROUTES.REGISTER}>Register/Login</NavLink>
             }
             </div>
+            <div className="middle">
+            </div>
             <div className="nav-bar-right">
-                <NavLink to = {ROUTES.HOME}>Home</NavLink>
+                {
+                props.currentUser?<div className="home-login">
+                <NavLink to = {ROUTES.HOME}>Home</NavLink> <br/><br/>
                 <a onClick={doSignOut}>Logout</a>
+                </div>
+                :null
+                }
             </div>
         </div>
     )

@@ -14,7 +14,6 @@ router.get('/master', (req,res)=>{
 
 //uploading master
 router.post("/master", async(req,res) => {
-    console.log(req.body, "HELLO WE ARE HERE!~!!!")
     const createdMaster =  await Master.create({
             _id: new mongoose.Types.ObjectId(),
             name:req.body.name,
@@ -25,6 +24,6 @@ router.post("/master", async(req,res) => {
         })
 
         res.json(createdMaster)
-        console.log(createdMaster,"<===created master")
+        // console.log(createdMaster,"<===created master")
 })
 module.exports = router
