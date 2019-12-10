@@ -6,6 +6,8 @@ import {Route,Switch} from 'react-router-dom'
 import Nav from './Components/Nav'
 import GoogleSignIn from './Components/GoogleSignIn'
 import MastersUpload from './Components/MastersUpload'
+import UserShow from './Components/UserShow'
+
 //firebase imports 
 import {firebase,doAddFile,auth,doSignOut} from './firebase/firebase'
 
@@ -40,10 +42,11 @@ class App extends Component {
       <div>
         <div className="App">
         <Router>
-          <Nav/>
-          <Switch>
+          <Nav currentUser = {this.state.currentUser}/>
+        <Switch>
           <Route exact path = {ROUTES.REGISTER} component = {GoogleSignIn}/>
           <Route path = {ROUTES.UPLOAD} render ={()=> <MastersUpload currentUser = {this.state.currentUser}/>} />
+          <Route exact path= {`${ROUTES.USER}/users/:id`} render ={()=> <UserShow currentUser = {this.state.currentUser}/>}/>
         </Switch>
         </Router>
         </div>

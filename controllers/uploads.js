@@ -12,16 +12,16 @@ router.get('/master', (req,res)=>{
     return res.send('GET HTTP method on user resource');
 })
 
-
+//uploading master
 router.post("/master", async(req,res) => {
-    console.log("hitttttttttttt")
-    console.log(req.body)
-    const createdMaster =  await new Master({
+    console.log(req.body, "HELLO WE ARE HERE!~!!!")
+    const createdMaster =  await Master.create({
             _id: new mongoose.Types.ObjectId(),
             name:req.body.name,
-            user_id:req.body.user_id,
+            userLeader:req.body.userLeader,
             masterFile:req.body.masterFile,
-            versions:req.body.versions
+            versions:req.body.versions,
+            key:req.body.key
         })
 
         res.json(createdMaster)

@@ -23,14 +23,15 @@ require('./config/db')
 
 //controllers
 const userController = require('./controllers/users')
-
 app.use('/auth', userController)
 
 const uploadsController = require('./controllers/uploads')
-
 app.use('/uploads', uploadsController)
 
-app.post('/hello', (req, res) => console.log(req.body))
+const docsController = require('./controllers/documents')
+app.use('/docs',docsController)
+
+// app.post('/hello', (req, res) => console.log(req.body))
 
 
 

@@ -26,9 +26,12 @@ const config = {
   const doSignInWithGoogle = () =>
     auth.signInWithPopup(googleProvider)
 
+  const doSignOut = ()  => auth.signOut()
+
     export {
         firebase,
         doSignInWithGoogle,
         auth,
-        doAddFile
+        doAddFile,
+        doSignOut
     }

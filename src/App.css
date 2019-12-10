@@ -1,7 +1,9 @@
 body {
   background-color: #696969;
+  font-family:  Helvetica,Arial, sans-serif;
 }
 
 .App li{
   list-style-type: none;
 }
+

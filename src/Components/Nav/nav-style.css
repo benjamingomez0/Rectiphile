@@ -14,3 +14,9 @@
 .nav-bar:hover{
     text-decoration: underline;
 }
+.nav-bar-left{
+    display:inline;
+}
+.nav-bar-right{
+    text-align: right;
+}

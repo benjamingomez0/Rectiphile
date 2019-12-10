@@ -1,17 +1,16 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const masterSchema= new Schema({
+const versionSchema= new Schema({
     name:String,
-    userLeader:String,
-    masterFile:String,
-    versions:[String],
+    versionFile:String,
+    master:String,
     dateCreated:{
         type: Date,
         default: Date.now
       },
     key:String  
 })
-const Master = mongoose.model('Master',masterSchema)
+const Version = mongoose.model('Version',versionSchema)
 
-module.exports = Master
+module.exports = Version

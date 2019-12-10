@@ -3,52 +3,62 @@ import {Link} from 'react-router-dom';
 import { render } from '@testing-library/react';
 import './masters-upload-style.css'
 import {doAddFile} from '../../firebase/firebase'
-import axios from 'axios';
+import XLSX from 'xlsx'
+
+
+
 
 class MastersUpload extends Component{
     state=
     {
         name:'',
         file:null,
-        versions:[]
+        versions:[],
+        key:''
     }
      handleChange=(e)=>{
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value,
           })
-          console.log(this.state)
     }
     handleFileChange=(e)=>{
+        console.log(e.target.files[0],"<== file")
         this.setState({
             file:e.target.files[0]
         })
         
     }
+
     handleSubmit= async (e)=>
     {
       e.preventDefault()
+    //   reader = new FileReader();
 
       doAddFile(this.state.file)
         .then(file => file.ref.getDownloadURL())
         .then(async url => {
             const data = {
-                user_id:this.props.currentUser.uid,
+                userLeader:this.props.currentUser.uid,
                 masterFile:url,
                 versions:this.state.versions,
-                name:this.state.name
+                name:this.state.name,
+                key:this.state.key
             }
-            const stuff = await fetch('/uploads/master', {
+          const createTheMaster = await fetch('/uploads/master', {
           method: 'POST',
           body: JSON.stringify(data),
           headers: {
             'Content-Type': 'application/json'
           }
+         
         })
-
+        if(createTheMaster.status==200)
+        {
+            console.log(await createTheMaster.json(),"<<<< master upload success message")
+            // this.props.history.push(`/docs/masters/${createTheMaster._id}`)
+        }
         
         })
-    //   axios.post("http://localhost:8000/uploads/master", data)
-        // cons st('/uploads/master',data, config);
     }
     render(){
         return(
@@ -67,11 +77,14 @@ class MastersUpload extends Component{
                 </div>
                 <div className="form-holder">
                     <form className="form" onSubmit={this.handleSubmit}> 
-                        Name of master:  <input type = "text" name = "name" onChange={this.handleChange}/>
+                        Name of master file:  <input type = "text" name = "name" onChange={this.handleChange}/>
+                        <br/>
+                        Choose a key for this file:<input type="text" name= "key" onChange={this.handleChange}/>
                         <br/>
                         File:  <input type="file" name= "file" onChange={this.handleFileChange}/>
                         <br/>
                         <button type= "submit">upload</button>
+
                     </form>
                 </div>
             </React.Fragment>

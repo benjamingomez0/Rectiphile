@@ -38,8 +38,8 @@
     background-color: #474A48;
     color: #F7F7FF;
 }
-/* .form{
-    text-align: center;
+input{
+    padding:5px;
     margin: 10px auto;
-    justify-content: left;
-} */
+    text-align: center;
+}
