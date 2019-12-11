@@ -18,8 +18,8 @@ class UserShow extends Component{
         
             const userMasters= this.state.masterDocs.map((doc)=>{
                return( 
-                    <Link to = {`/docs/masters/${doc._id}`} key={doc._id} >
-                        <div className="card-container">
+                    <Link to = {`/docs/masters/${doc._id}`} key={doc._id} className="card-container">
+                        <div >
                             <div className="card">
                                 <h2 >{doc.name}</h2>
                                 <h3>Date Created:</h3>

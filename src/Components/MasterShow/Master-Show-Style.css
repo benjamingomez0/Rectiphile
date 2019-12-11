@@ -1,7 +1,7 @@
 .master-container{
     margin: 0 auto;
     text-align: center;
-    height:60vh;
+    height:65vh;
     width:60%;
     color:#F7F7FF;
     background-color: #306B34;
@@ -25,10 +25,21 @@ a:hover{
     border-radius: 6px;
     box-shadow:  5px 5px 5px #00000035;
     margin-left: 20px;
-    margin:auto 20px;
+    justify-content: center;
+    /* margin:auto 20px; */
+    text-align: center;
 }
 
-
+.version-form{
+    text-align: left;
+    padding:10px;
+}
+.version-form #text-area{
+    margin-left: 30%;
+}
+.submit-btn{
+    margin-left: 38%;
+}
 /* .card{
     display:inline-block
 } */

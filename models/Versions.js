@@ -9,7 +9,7 @@ const versionSchema= new Schema({
         type: Date,
         default: Date.now
       },
-    key:String  
+    differences:String  
 })
 const Version = mongoose.model('Version',versionSchema)
 

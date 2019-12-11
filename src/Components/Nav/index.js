@@ -5,7 +5,9 @@ import {doSignOut} from '../../firebase/firebase'
 import './nav-style.css'
 
 const Nav = (props) =>{
+    const {uid} = props
     return(
+        
         <div className="nav-bar">
             <div className="nav-bar-left">
             {
@@ -19,7 +21,7 @@ const Nav = (props) =>{
             <div className="nav-bar-right">
                 {
                 props.currentUser?<div className="home-login">
-                <NavLink to = {ROUTES.HOME}>Home</NavLink> <br/><br/>
+                <NavLink to = {`${ROUTES.USER}/users/${uid}`}>Home</NavLink> <br/><br/>
                 <a onClick={doSignOut}>Logout</a>
                 </div>
                 :null
