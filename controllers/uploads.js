@@ -27,7 +27,13 @@ router.post('/master', async(req,res) => {
         // console.log(createdMaster,"<===created master")
 })
 
-// router.post('/version', async(req,res)=>{
-//     const foundMaster = await 
-// })
+router.post('/version', async(req,res)=>{
+    newVersion = await Version.create(req.body)
+    const foundMaster = await Master.findById(req.body.master)
+    foundMaster.versions.push(newVersion._id)
+    foundMaster.save()
+    res.json(foundMaster)
+    
+
+})
 module.exports = router

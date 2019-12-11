@@ -8,6 +8,8 @@ import GoogleSignIn from './Components/GoogleSignIn'
 import MastersUpload from './Components/MastersUpload'
 import UserShow from './Components/UserShow'
 import MasterShow from './Components/MasterShow'
+import VersionShow from './Components/VersionShow'
+import AllMasters from './Components/AllMasters'
 //firebase imports 
 import {firebase,doAddFile,auth,doSignOut} from './firebase/firebase'
 
@@ -44,10 +46,12 @@ class App extends Component {
         <Router>
           <Nav currentUser = {this.state.currentUser}/>
         <Switch>
-          <Route exact path = {ROUTES.REGISTER} component = {GoogleSignIn}/>
+          <Route exact path = {ROUTES.REGISTER} render ={(props)=> <GoogleSignIn doSetCurrentUser=  {this.doSetCurrentUser} currentUser = {this.state.currentUser} {...props}/>} />
           <Route path = {ROUTES.UPLOAD} render ={(props)=> <MastersUpload currentUser = {this.state.currentUser} {...props} />} />
           <Route exact path= {`${ROUTES.USER}/users/:id`} render ={(props)=> <UserShow currentUser = {this.state.currentUser} {...props}/>}/>
           <Route exact path= {`${ROUTES.DOCS}/masters/:id`} render ={(props)=> <MasterShow currentUser = {this.state.currentUser} {...props}/>}/>
+          <Route exact path= {`${ROUTES.DOCS}/versions/:id`} render ={(props)=> <VersionShow currentUser = {this.state.currentUser} {...props}/>}/>
+          <Route exact Path= {`${ROUTES.HOME}`} render = {(props)=> <AllMasters currentUser = {this.state.currentUser}{...props}/>} />
         </Switch>
         </Router>
         </div>

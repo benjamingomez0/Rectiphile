@@ -26,24 +26,39 @@ class GoogleSignIn extends Component
                   },
             })
             const createdUserJson = await createdUser.json()
-            console.log(createdUserJson)
+            this.props.history.push('/')
+
         })
         .catch(error => {
               this.setState({ error });
             });
           e.preventDefault();
     }
+    // handleSubmit=(e)=>{
+    //     doSignInWithGoogle()
+    //     .then(async (authUser)=>{
+    //         this.props.doSetCurrentUser(authUser)
+    //     })
+    // }
     render()
     {
         const{error}=this.state
         return(
-            <div className = "create-user">
-                Register with Google
-                <form onSubmit = {this.handleSubmit}>
-                <button type = "submit"> Use Google to Register </button>
-                    {error && <span className="error-message">We're Sorry, {error.message}</span>}
-                </form>
-                <Link to = {ROUTES.HOME}> home</Link>
+            <div className ="register-login">
+                <div className = "create-user">
+                    Register with Google
+                    <form onSubmit = {this.handleSubmit} className= "form">
+                    <button type = "submit"> Use Google to Register </button>
+                        {error && <span className="error-message">We're Sorry, {error.message}</span>}
+                    </form>
+                </div>
+                <div className = "create-user">
+                    Login with Google
+                    <form onSubmit = {this.handleLogin} className= "form">
+                    <button type = "submit"> Use Google to SignIn </button>
+                        {error && <span className="error-message">We're Sorry, {error.message}</span>}
+                    </form>
+                </div>
             </div>
         )
     }

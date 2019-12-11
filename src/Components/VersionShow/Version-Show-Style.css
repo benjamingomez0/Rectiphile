@@ -1,0 +1,30 @@
+
+.version-container{
+    margin: 0 auto;
+    text-align: center;
+    height:70vh;
+    width:60%;
+    color:#F7F7FF;
+    background-color: #306B34;
+    overflow: scroll;
+    border-radius: 6px;
+    box-shadow:  5px 5px 5px #00000035;
+}
+
+.deleteBtn{
+    width:20%;
+    height:10%;
+    background-color:#C03221;
+    margin: 20px auto;
+    color:#F7F7FF;
+    text-align: center;
+    padding-top:5px;
+    border-radius: 6px;
+  
+}
+
+.deleteBtn:hover{
+
+box-shadow:  5px 5px 5px #00000035;
+
+}

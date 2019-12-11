@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'; 
-import { render } from '@testing-library/react';
 import './masters-upload-style.css'
 import {doAddFile} from '../../firebase/firebase'
-import XLSX from 'xlsx'
-
-
+import { useDropzone } from "react-dropzone";
 
 
 class MastersUpload extends Component{
@@ -16,6 +13,12 @@ class MastersUpload extends Component{
         versions:[],
         key:''
     }
+    Dropzone = ({ onDrop, accept }) => {
+        // Initializing useDropzone hooks with options
+        const { getRootProps, getInputProps, isDragActive } = useDropzone({
+          onDrop,
+          accept})
+        }
      handleChange=(e)=>{
         this.setState({
             [e.currentTarget.name]: e.currentTarget.value,
@@ -64,18 +67,6 @@ class MastersUpload extends Component{
     render(){
         return(
             <React.Fragment>
-                <div className="upload-container">
-                    <div className="upload-message">
-                        Drag Master
-                        <br/>
-                        Document Here...
-                        <br/>
-                        or upload below
-                        <br/>
-                        <br/>
-                        <span className = "sub-text">Future Versions will be compared against this document</span>
-                    </div>
-                </div>
                 <div className="form-holder">
                     <form className="form" onSubmit={this.handleSubmit}> 
                         Name of master file:  <input type = "text" name = "name" onChange={this.handleChange}/>
@@ -90,7 +81,7 @@ class MastersUpload extends Component{
                 </div>
             </React.Fragment>
         )
-    }
+            }
 }
 export default MastersUpload
 

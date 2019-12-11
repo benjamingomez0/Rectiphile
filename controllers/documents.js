@@ -8,6 +8,26 @@ const bodyParser = require('body-parser');
 const Master = require('../models/Masters')
 const Version = require('../models/Versions')
 
+router.get('/', async (req,res)=>{
+    try
+    {
+       const foundMasters=  await Master.find({}, (err,master)=>{
+           if(err)
+           {
+               console.log(err)
+           }
+           else
+           {
+               res.json(master)
+           }
+       })
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
+})
+
 //master show route
 router.get('/masters/:id', async (req,res) =>{
     try
@@ -30,17 +50,17 @@ router.get('/masters/:id', async (req,res) =>{
 })
 
 //version show route
-router.get('versions/:id', async (req,res) =>{
+router.get('/versions/:id', async (req,res) =>{
     try
     {
-       const foundMasters=  await Version.findById(req.params.id, (err,version)=>{
+       const foundVersion=  await Version.findById(req.params.id, (err,version)=>{
            if(err)
            {
                console.log(err)
            }
            else
            {
-               res.json(master)
+               res.json(version)
            }
        })
     }
@@ -50,5 +70,29 @@ router.get('versions/:id', async (req,res) =>{
     }
 })
 
+router.delete('/:id', async(req,res)=>{
+    try
+    {
+        const mastertoUpdate = await Master.find({versions:req.params.id})
+        const deletedVersion = await Version.findByIdAndRemove(req.params.id)
+        const updatedMaster = await mastertoUpdate.update({ versions: versions.filter(version=> version===req.params.id)}
+            ,{new:true}
+            ,async(err, master)=>{
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    res.json(master)
+                }
+            })
+        
+    }
+    catch(err)
+    {
+        console.log(err)
+    }
+})
 
 module.exports = router

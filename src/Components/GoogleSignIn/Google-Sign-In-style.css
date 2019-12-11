@@ -5,18 +5,27 @@
 
 .create-user{
     margin: 0 auto;
-    width:60%;
-    height:80vh;
+    width: 35%;
+    height: 30vh;
     background-color: #474A48;
     border-radius: 6px;
     margin: 10px auto;
-    box-shadow:  5px 5px 5px #00000035;
+    box-shadow: 5px 5px 5px #00000035;
     text-align: center;
+    color: #F7F7FF;
+    line-height: 25px;
+
 }
 
-.create-user form{
+.create-user {
     /* margin: 0 auto; */
-    padding-top:60vh;
+    padding-top:20vh;
     text-align: center;
 }
 
+.form{
+    margin: 0 auto;
+}
+.register-login{
+    display: flex;
+}

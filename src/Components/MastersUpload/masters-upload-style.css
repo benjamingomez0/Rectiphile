@@ -18,24 +18,16 @@
 .sub-text{
     opacity: .4;
 }
-.upload-container{
-    width:80%;
-    height:60vh;
-    background-color: #474A48;
-    border-radius: 6px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow:  5px 5px 5px #00000035;
-    overflow: scroll;
-}
+
 .form-holder{
+    text-align: center;
     margin: 20px auto;
     width:80%;
     height:auto;
     padding: 20px;
     border-radius: 6px;
     box-shadow:  5px 5px 5px #00000035;
-    background-color: #474A48;
+    background-color: #FFAE00;
     color: #F7F7FF;
 }
 input{
