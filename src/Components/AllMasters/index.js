@@ -19,6 +19,7 @@ class AllMasters extends Component{
                return( 
                     <Link to = {`/docs/masters/${doc._id}`} key={doc._id} className="card-container">
                         <div >
+                            
                             <div className="card">
                                 <h2 >{doc.name}</h2>
                                 <h3>Date Created:</h3>
