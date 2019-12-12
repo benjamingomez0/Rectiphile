@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './Version-Show-Style.css'
-
+import * as ROUTES from '../../Constants/routes'
 class VersionShow extends Component{
     state = {
         version:{}
@@ -14,13 +14,13 @@ class VersionShow extends Component{
         })
         
     }
-    async handleDelete(){
-        const delVersion = await fetch(`/${this.props.match.params.id}`,{
+     handleDelete = async () => {
+        const delVersion = await fetch(`/docs/${this.state.version._id}`,{
             method: 'DELETE',
             headers: {
-              'Content-Type': 'application/json'}
-            
+              'Content-Type': 'application/json'} 
         })
+        this.props.history.push(ROUTES.HOME)
 
     }
     render(){
@@ -32,7 +32,7 @@ class VersionShow extends Component{
                     <br/>
                    <a href = {this.state.version.versionFile}>Version</a>
                     <h3>Date Created:</h3>
-                    {this.state.version.dateCreated}
+                    {new Date(this.state.version.dateCreated).toDateString()}
                     <h3>Differences</h3>
                     {this.state.version.differences}
                     {

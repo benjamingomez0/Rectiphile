@@ -34,12 +34,18 @@ class GoogleSignIn extends Component
             });
           e.preventDefault();
     }
-    // handleSubmit=(e)=>{
-    //     doSignInWithGoogle()
-    //     .then(async (authUser)=>{
-    //         this.props.doSetCurrentUser(authUser)
-    //     })
-    // }
+
+    
+    handleLogin=(e)=>{
+        e.preventDefault()
+        doSignInWithGoogle()
+        .then(async (authUser)=>{
+            const foundUser = await fetch(`/auth/users/login/${authUser.user.uid}`)
+            const foundUserToJson = await foundUser.json()
+            // if(foundUserToJson.success="success")
+            // // this.setState({foundUserToJson)
+        })
+    }
     render()
     {
         const{error}=this.state

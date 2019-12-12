@@ -39,21 +39,28 @@ router.get('/users/:id', async(req,res)=>{
 
 })
 
+//login
+router.get('/users/login/:id', async (req,res)=>{
+   const foundUser = await User.findById(req.params.id, (err,user)=>{
+        if(err)
+        {
+            console.log(err)
+        }
+        else
+        {
+            if(user)
+            {
+                const data = {
+                    message:"success"
+                }
+                res.json(data)
+            }
+        }
+
+   })
+})
 
 
-
-
-
-
-
-
-
-//user Edit
-router.put('/users/:userId', async (req, res) => {
-   console.log(req.body)
-   const updatedUser = await User.findByIdAndUpdate(req.params.userId, req.body, {new:true})
-   res.json(updatedUser)
-});
 
 //user delete
 router.delete('/users/:userId', (req, res) => {

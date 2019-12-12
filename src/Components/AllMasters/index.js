@@ -22,7 +22,7 @@ class AllMasters extends Component{
                             <div className="card">
                                 <h2 >{doc.name}</h2>
                                 <h3>Date Created:</h3>
-                                <h4>{doc.dateCreated}</h4>
+                                <h4>{new Date(doc.dateCreated).toDateString()}</h4>
                                 <h3>Versions Available:</h3>
                                 <h4>{doc.versions?doc.versions.length:0}</h4>
                             </div>

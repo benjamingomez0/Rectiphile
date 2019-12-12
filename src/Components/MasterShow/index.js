@@ -69,12 +69,6 @@ class MasterShow extends Component{
     }
     render(){
         console.log(this.state.master.versions)
-        // const versions = this.state.master.versions.map((vers)=>{
-        //     return(
-        //         <div> this is a version</div>
-        // //         <Link to={`/docs/versions/${vers}`}> <div> See Version {vers.length} </div> </Link>
-        //     )
-        // })
             return(
                 
                 <div className ="master-container">
@@ -83,7 +77,7 @@ class MasterShow extends Component{
                     <br/>
                    <a href = {this.state.master.masterFile}>Master</a>
                     <h3>Date Created:</h3>
-                    {this.state.master.dateCreated}
+                    {new Date(this.state.master.dateCreated).toDateString()}
                     <h3>Versions Available</h3>
                     {
                         this.state.master.versions ?
@@ -92,13 +86,7 @@ class MasterShow extends Component{
                                 <Link to={`/docs/versions/${vers}`}> <div> Version {i+1} </div> </Link>  
                             )
                         }) : ''
-
-
-                    // this.state.master.versions?<h3>versions</h3>
-                    // // ?{versions}
-                    // :0
                     }
-                    <br/>
                     <br/>
                     {
                         this.props.currentUser?

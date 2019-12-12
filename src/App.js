@@ -10,6 +10,7 @@ import UserShow from './Components/UserShow'
 import MasterShow from './Components/MasterShow'
 import VersionShow from './Components/VersionShow'
 import AllMasters from './Components/AllMasters'
+
 //firebase imports 
 import {firebase,doAddFile,auth,doSignOut} from './firebase/firebase'
 
@@ -35,7 +36,6 @@ class App extends Component {
   
   doSetCurrentUser = currentUser =>{
     this.setState({currentUser})
-    // console.log(this.state, '<==== current user')
   }
   
 

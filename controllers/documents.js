@@ -75,19 +75,10 @@ router.delete('/:id', async(req,res)=>{
     {
         const mastertoUpdate = await Master.find({versions:req.params.id})
         const deletedVersion = await Version.findByIdAndRemove(req.params.id)
-        const updatedMaster = await mastertoUpdate.update({ versions: versions.filter(version=> version===req.params.id)}
-            ,{new:true}
-            ,async(err, master)=>{
-                if(err)
-                {
-                    console.log(err)
-                }
-                else
-                {
-                    res.json(master)
-                }
-            })
-        
+        const index = mastertoUpdate[0].versions.indexOf(deletedVersion._id)
+        mastertoUpdate[0].versions.splice(index, 1)
+        mastertoUpdate[0].save()
+        res.json({"data": {}, "status": {"code": 200, "message": "so deleted"}})
     }
     catch(err)
     {
