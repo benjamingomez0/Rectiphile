@@ -42,8 +42,6 @@ class GoogleSignIn extends Component
         .then(async (authUser)=>{
             const foundUser = await fetch(`/auth/users/login/${authUser.user.uid}`)
             const foundUserToJson = await foundUser.json()
-            // if(foundUserToJson.success="success")
-            // // this.setState({foundUserToJson)
         })
     }
     render()

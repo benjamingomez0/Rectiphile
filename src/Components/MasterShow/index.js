@@ -44,7 +44,6 @@ class MasterShow extends Component{
         })
         if(createTheVersion.status==200)
         {
-            console.log(await createTheVersion.json(),"<<<< master upload success message")
             console.log(this.props)
             this.props.history.push(`/auth/users/${this.props.currentUser.uid}`)
         }

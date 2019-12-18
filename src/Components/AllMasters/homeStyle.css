@@ -1,0 +1,18 @@
+.homeInfo{
+ text-align: center;
+ margin:0 auto;
+ height:65vh;
+ width:41%;
+ background-color: #ED5B29;
+ color:#F7F7FF;
+ overflow: scroll;
+ border-radius: 6px;
+ box-shadow:  5px 5px 5px #00000035;
+
+}
+
+.intro{
+    height:20vh;
+    width:50vh;
+    margin:0 auto;
+}
